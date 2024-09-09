@@ -1,3 +1,52 @@
-[gd_scene format=3 uid="uid://jooduv01isbs"]
+[gd_scene load_steps=7 format=3 uid="uid://jooduv01isbs"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Script" path="res://text/text_panel.gd" id="1_bmgbo"]
+[ext_resource type="Script" path="res://new_script.gd" id="1_gd2fm"]
+[ext_resource type="Theme" uid="uid://b0kaeir5ox3u0" path="res://new_theme.tres" id="1_rug21"]
+[ext_resource type="Texture2D" uid="uid://dgxswimabu3ve" path="res://icon.svg" id="2_almck"]
+
+[sub_resource type="Theme" id="Theme_bqmqt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bijdm"]
+size = Vector2(135.178, 133.03)
+
+[node name="Main" type="Node"]
+
+[node name="stage01" type="Node" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="stage01"]
+offset_right = 1080.0
+offset_bottom = 1920.0
+theme = SubResource("Theme_bqmqt")
+
+[node name="Control" type="Control" parent="stage01"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelContainer" type="PanelContainer" parent="stage01/Control"]
+layout_mode = 0
+offset_left = 271.0
+offset_top = 1364.0
+offset_right = 858.0
+offset_bottom = 1564.0
+theme = ExtResource("1_rug21")
+script = ExtResource("1_bmgbo")
+
+[node name="Node2" type="Node" parent="."]
+
+[node name="Player" type="CharacterBody2D" parent="Node2"]
+visible = false
+rotation = 0.032846
+up_direction = Vector2(0, 1)
+script = ExtResource("1_gd2fm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2/Player"]
+rotation = -0.027038
+texture = ExtResource("2_almck")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2/Player"]
+position = Vector2(0.429011, 0.489272)
+rotation = -0.0391308
+shape = SubResource("RectangleShape2D_bijdm")
